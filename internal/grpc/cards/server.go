@@ -85,12 +85,12 @@ func (s *serverAPI) Save(
 		return nil, status.Error(codes.InvalidArgument, "year is required")
 	}
 
-	accountID, err := s.cards.SaveCard(ctx, in.GetNumber(), in.GetCvv(), in.GetMonth(), in.GetYear(), in.GetInfo())
+	cardID, err := s.cards.SaveCard(ctx, in.GetNumber(), in.GetCvv(), in.GetMonth(), in.GetYear(), in.GetInfo())
 	if err != nil {
 		return nil, status.Error(codes.Internal, "failed to save card")
 	}
 
-	return &cardsv1.SaveResponse{Id: accountID}, nil
+	return &cardsv1.SaveResponse{Id: cardID}, nil
 }
 
 func (s *serverAPI) Update(
