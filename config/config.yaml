@@ -1,0 +1,6 @@
+env: "local"
+storage_path: "./storage/cards.db"
+grpc:
+  port: 44047
+  timeout: 5s
+secret: "test-secret"
